@@ -2,9 +2,9 @@ name: Generate Snake
 
 # Controls when the workflow will run
 on:
-  # Run automatically every 24 hours
+  # Run automatically every 12 hours
   schedule:
-    - cron: "0 */24 * * *" 
+    - cron: "0 */12 * * *" 
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
