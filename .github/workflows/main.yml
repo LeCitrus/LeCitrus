@@ -1,16 +1,10 @@
-name: Commit Snake
+name: Generate Snake
 
 # Controls when the workflow will run
 on:
   # Run automatically every 12 hours
   schedule:
     - cron: "0 */12 * * *" 
-
-  # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -29,11 +23,10 @@ jobs:
         uses: Platane/snk/svg-only@v3
         with:
           github_user_name: ${{ github.repository_owner }}
-          outputs: dist/commit-snake.svg?palette=github-dark
+          outputs: dist/github-contribution-grid-snake.svg?palette=github-dark
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # The content will be available at https://raw.githubusercontent.com/<github_user>/<repository>/<target_branch>/<file>
       - name: push commit-snake.svg to the output branch
         uses: crazy-max/ghaction-github-pages@v3.0.0
         with:
